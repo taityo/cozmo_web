@@ -1,0 +1,163 @@
+swagger: '2.0'
+
+info:
+  version: "1.0.0"
+  title: "COZMO REST API"
+  description: "cozmoを操作するためのapi"
+  termsOfService: "terms"
+  contact:
+    name: "今村圭佑"
+    email: "taicho.nv@gmail.com"
+  license:
+    name: "MIT"
+    url: "http://opensource.org/licenses/MIT"
+    
+paths:
+ /api/cozmo/:
+  get:
+    summary: "次のエンドポイントを取得"
+    description: "cozmo/の次に続くエンドポイントを取得してくれる"
+    responses:
+      200:
+        description: "OK"
+        schema:
+          type: "array"
+          items:
+            type: "string"
+            example: "move"
+ /api/cozmo/move/:
+  get:
+    summary: "次のエンドポイントを取得" 
+    description: "move/の次に続くエンドポイントを取得してくれる"
+    responses:
+      200:
+        description: "OK"
+        schema:
+          type: "array"
+          items:
+            type: "string"
+            example: "moter"
+
+ /api/cozmo/move/moter/:
+  get:
+    summary: "moterを操作する"
+    description: "次のエンドポイントを取得してくれる"
+    responses:
+      200:
+        description: OK
+  put:
+    summary: "moterを制御する"
+    description: "cmd_velを渡されたら、その速度でcozmoを動かす"
+    responses:
+      200:
+        description: OK
+  delete:
+    summary: "moterを制御する"
+    description: "cozmoのモータを停止させる"
+    responses:
+      200:
+        description: OK
+ /api/cozmo/move/moter/foward/:
+  put:
+    summary: "cozmoを前進させる"
+    description: "cozmoを前進させる"
+    responses:
+      200:
+        description: OK
+  delete:
+    summary: "cozmoを前進させる"
+    description: "cozmoの前進を停止する"
+    responses:
+      200:
+        description: OK
+ /api/cozmo/move/moter/backward/:
+  put:
+    summary: "cozmoを後退させる"
+    description: "cozmoを後退させる"
+    responses:
+      200:
+        description: OK
+  delete:
+    summary: "cozmoを後退させる"
+    description: "cozmoの交代を停止させる"
+    responses:
+      200:
+        description: OK
+ /api/cozmo/move/moter/right_rotation/:
+  put:
+    summary: "cozmoを右回転させる"
+    description: "cozmoを右回転させる"
+    responses:
+      200:
+        description: OK
+  delete:
+    summary: "cozmoを右回転させる"
+    description: "cozmoの右回転を停止させる"
+    responses:
+      200:
+        description: OK
+ /api/cozmo/move/moter/left_rotation/:
+  put:
+    summary: "cozmoを左回転させる"
+    description: "cozmoを左回転させる"
+    responses:
+      200:
+        description: OK
+  delete:
+    summary: "cozmoを左回転させる"
+    description: "cozmoの左回転を停止させる"
+    responses:
+      200:
+        description: OK
+ /api/cozmo/move/moter/odometry/:
+  get:
+    summary: "cozmoのodometryを取得する"
+    description: "cozmoのodometryを取得する。このodometryは、前進・後退・右回転・左回転すべての動きを考慮したものになっている。"
+    responses:
+      200:
+        description: OK
+  
+  
+  
+ /api/cozmo/speaker/:
+  get:
+    summary: "次のエンドポイントを取得"
+    description: "speaker/の次のエンドポイントを取得してくれる"
+    responses:
+      200:
+        description: "OK"
+        schema:
+          type: "array"
+          items:
+            type: "string"
+            example: "say_text"
+ /api/cozmo/speaker/say_text/:
+  put:
+    summary: "cozmoに何かをしゃべらせる"
+    description: "json形式で文字を指定する事で、cozmoに文章を読ませる事が出来る"
+    responses:
+      200:
+        description: OK
+  
+            
+ /api/cozmo/camera/:
+  get:
+    summary: "次のエンドポイントを取得"
+    description: "camera/の次のエンドポイントを取得してくれる"
+    responses:
+      200:
+        description: OK
+        schema:
+          type: "array"
+          items:
+            type: "string"
+            example: "raw_image"
+ /api/cozmo/camera/raw_image/:
+  get:
+    summary: "cozmoから画像を取得"
+    description: "cozmoの前方についているカメラから、カラー画像を取得する事が出来る"
+    responses:
+      200:
+        description: OK
+  
+            
